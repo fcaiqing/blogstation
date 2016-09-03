@@ -25,17 +25,32 @@ li.nav-animation:hover{
 }
 li.admini{
 	background:rgb(33,33,33);
-	height: 112px;
+	height: 46px;
 }
 a.admini-one{
 	display:block;
+	margin-bottom:0px;
+	/*border:1px white dotted;*/
+}
+a.admini-one:hover{
+	border:1px white dotted;
+}
+span.listitem{
+	position: relative;
+	top:-2px;
+	width:0;
+    height:0;
+    border-width:10px 10px 0px 10px;
+    border-style:solid dashed dashed dashed;
+    border-color:#e66161 transparent transparent transparent;
+}
+a.admini-two{
+	display:none;
 	margin-bottom:1px;
 	/*border:1px white dotted;*/
 }
-a.admini-two{
-	display:block;
-	margin-bottom:1px;
-	/*border:1px white dotted;*/
+a.admini-two:hover{
+	border:1px white dotted;
 }
 a.admini-thr{
 	display:block;
@@ -239,4 +254,7 @@ span.promptInfo{
 	left:20px;
 	top:5px;
 	margin:10px auto 5px auto;
+}
+p.contact-info{
+	margin-top:0px;
 }

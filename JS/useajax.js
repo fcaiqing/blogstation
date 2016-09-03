@@ -23,7 +23,22 @@ function deal_getCity(){
 }
 //
 function checkinfo(obj1, obj2){
-	var loader=new net.AjaxRequest("registerServlet?action=checkinfo+"&nocache="+new Date().getTime(),deal_getCity,onerror,"GET");
+	var loader=new net.AjaxRequest("registerServlet?action=checkinfo&name="+obj1+"&address="+obj2+"&nocache="+new Date().getTime(),deal_checkinfo,onerror,"GET");
+}
+function deal_checkinfo(){
+	var result=this.req.responseText;
+	var flag=result.search(/true/i);
+	if(flag ===-1)
+	{
+		alert('no access, please contact administrator.');
+	}
+	else
+	{
+		result=result.substring(5);
+		alert('register successfully. YOUR ID: '+result);
+		document.getElementById("regi").style.display="none";
+		document.getElementById("regimask").style.display="none";
+	}
 }
 function onerror(){		//错误处理函数
 	alert("出错了");

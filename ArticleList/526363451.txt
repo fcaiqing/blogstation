@@ -1,0 +1,368 @@
+　作为一个多年Javaer，我学习JavaScript的方式就是比较着学，努力辨识清楚Java与JavaScript的同与异，在比较中加深理解认识，最后达到学会JavaScript的目的。
+
+　　许多程序语言都有自己的口号，Java的口号是：“write once，run everywhere！”同样，JavaScript也有自己的口号，那就是“everything is object！”我的学习也是从这句话开始的，为此我需要搞清楚以下问题：
+
+　　在JavaScript中，对象（object）到底是什么？
+
+　　在JavaScript中，基本数据类型是对象吗？
+
+　　在JavaScript中，数组是对象吗？
+
+　　在JavaScript中，函数是对象吗？
+
+　　在JavaScript中，创建对象的方法有多少？
+
+　　在JavaScript中，对象能继承吗？
+
+　　在JavaScript中，如何使用函数这种特殊的对象（this，属性使用，构建对象使用，闭包使用，柯里化，默认值，rest和spread）？
+
+　　搞清楚上面的问题后，我又探究了如下问题：
+
+　　在JavaScript中，闭包是什么？
+
+　　在JavaScript中，变量有作用域吗？
+
+　　在JavaScript中，有哪些奇技淫巧是Java所没有的（模板字符串，数组解构赋值，getter，setter，Generator ，For of，modules）？
+
+　　弄清这些问题后，再去学习React Native，就不会有语言上的困难了，真的好开心！终于能够与React Native愉快地玩耍了！
+
+　　一、在JavaScript中，对象（object）到底是什么？
+
+　　一言以蔽之，在JavaScript中，对象就是一个Map，里面只有键值对，除此之外，啥也没有！
+
+　　1、创建对象
+
+　　来，让我们创建一个对象：
+
+　　var person = new Object();
+
+　　熟悉的new出现了，很亲切。var 是个新东西，来看看它是什么。
+
+　　在Java中我们要声明一个变量，必须指明它的类型，如下所示：
+
+　　Person person；
+
+　　Dog dog；
+
+　　Cat cat；
+
+　　之所以必须指明变量的类型，是因为Java是一个静态类型的语言，如果不声明，编译器将无法理解我们声明的变量。与Java正好相反，JavaScript是一个动态类型的语言，声明变量的时候不需要指明变量的类型，只需一个var 关键字就可以了，变量可以是任意类型，只有在你使用变量的时候，JavaScript才会动态确认变量的类型。
+
+　　2、添加属性
+
+　　在对象包含的键值对中，键被称为对象的属性，值被称为相应的属性值。所有的键都是字符串，而值可以是任意的类型。
+
+　　让我们为上面的对象添加两个属性：
+
+　　person['name'] = 'milter';
+
+　　person['age'] = 31;
+
+　　这里又有一个新东西，在JavaScript中，单引号和双引号都可以用来创建字符串，二者是一样的。
+
+　　下面我们就可以访问这些属性值了：
+
+　　var name = person['name'] ; // milter
+
+　　var age = person['age'] ; // 31
+
+　　3、简便方法
+
+　　以上创建对象、添加属性、访问属性的方式非常笨拙：
+
+　　• 添加属性和访问属性的语法呆板（需频繁输入[] 和' '）
+
+　　• 一次只能添加一个属性
+
+　　为了解决创建对象和添加属性的笨拙，JavaScript提供了创建对象的大括号（{ }）语法:
+
+　　var person ={'name' : 'milter', 'age': 31 };
+
+　　这样，可在创建对象的同时为其赋予多个属性。
+
+　　问题还没有解决，上面赋予属性时还需要写单引号，访问属性时还要写中括号和单引号。
+
+　　为此，JavaScript进一步规定：如果代表属性的字符串符合JavaScript的标识符命名规范，那么就可以省去字符串外面的单引号，同时可以使用object.prop语法访问属性。
+
+　　JavaScript的标识符命名规范如下：
+
+　　区分大小写，Myname与myname是两个不同的标识符。
+
+　　标识符首字符可以是以下划线（_）、美元符($)或者字母开始，不能是数字。
+
+　　标识符中其它字符可以是下划线（_）、美元符($)、字母或数字组成的。
+
+　　关键字和保留字不能作为标识符。
+
+　　显然，我们的name和age属性符合这个规范，所以现在我们可以这样写了：
+
+　　var person ={ name : 'milter', age: 31 };
+
+　　var name = person.name ; // milter
+
+　　var age = person.age ; // 31
+
+　　更酷的是，我们可以在对象创建出来后，继续为它添加或删除属性，如下：
+
+　　person.sex = 'man' ;
+
+　　以上为person对象添加了叫sex的属性，其值为字符串'man'。
+
+　　delete person.sex ;
+
+　　以上删除了对象person中的sex属性。
+
+　　你可能很想问，对象中的方法难道也是属性，也是键值对？答案是YES，后面讲到函数时会细说，暂且按下。
+
+　　二、 在JavaScript中，基本数据类型是对象吗？
+
+　　JavaScript中的基本数据类型有6种：
+
+　　• String
+
+　　• Number
+
+　　• Boolean
+
+　　• Symbol
+
+　　• undefined
+
+　　• null
+
+　　与Java相比，String 和Boolean含义基本没变。
+
+　　获取一个String值的方式在上文中已经提到，就是用单引号或者双引号括起一段字符即可。
+
+　　Boolean只有两个值 true和false，不用自己创建，直接拿来用就可以。
+
+　　Number只能是双精度浮点数，就是Java中的double。
+
+　　Symbol是个新类型，在ES6中引进。它的每个值都是独一无二的，获取一个Symbol值的语法是 : Symbol(String)。
+
+　　例如：
+
+　　var symb1 = Symbol('one');
+
+　　var symb2 = Symbol('one');
+
+　　var symb3 = Symbol();
+
+　　var symb4 = Symbol();
+
+　　由上可见，String是可选的,不管有没有String，都能用这种语法获取一个Symbol值。String只是为这个Symbol值增加了一个描述而已。Symbol的值都是独一无二的，是指你不能两次获得一样的Symbol值（正如人不可能两次踏入同一条河流，请叫我哲学家）。比如Number这种数据类型，我可以反复获取1这个值，并把它赋给不同的变量：
+
+　　var number1 = 1 ;
+
+　　var number2 = 1 ;
+
+　　number1和number2是相等的，String和Boolean也可以这样做。
+
+　　但是Symbol不是这样的！。上文中， symb1 != symb2，symb3 != symb4。
+
+　　从Java转过来的人，感到这种写法很别扭，总想在Symbol前加上一个new，千万不要这样，JavaScript是不允许的。
+
+　　请牢记，这里没有创建任何对象，仅仅是创建了一个独一无二的值。
+
+　　Symbol很像Java中的UUID，Symbol()就相当于UUID.randomUUID()。
+
+　　undefined和null这两种数据类型都只有一个值，就是它们的类型名。undefined用于表示变量未初始化，null用于表示对象为空。
+
+　　回到本节的问题，基本数据类型是对象吗？答案是 NO!
+
+　　说它们不是对象，原因有两点：
+
+　　1. 它们是不可变的。上文中，创建出person对象后，还能继续为它增加和删除属性，也可以改变原有属性的值。基本数据类型只有一个值，它们没有什么属性可修改或添删。而且一旦获得一个值，这个值就不可能改变。这一点，很像Java中String的不可变性。
+
+　　2. 它们的比较和传递都是基于值的，对象的比较和传递是基于引用的。例如：
+
+　　var a = 'one' ;
+
+　　var b = 'one';
+
+　　var c = {one:1};
+
+　　var d = {one:1};
+
+　　var e = c ;
+
+　　上面，a和b是相等的，因为两个变量有着同样的值，c和d是不相等的，因为两个变量指向两个不同的对象,但是e和c是相等的，因为它们都指向同一个对象。如果你这样做：
+
+　　e.one = 2 ;
+
+　　那么你会发现 c.one也会变成2。
+
+　　正如Java中有基本数据类型的包装类（Integer和int ，Double和double等）并可以自动装拆箱一样，JavaScript也有类似的机制，而且实现的更为彻底。
+
+　　回头看看六种基本数据类型，发现前四种的首字母是大写的，那是因为JavaScript为它们创建了包装对象，最后两个undefined和null首字母是小写的，因为JavaScript没有为它们提供包装对象。以String为例，代码
+
+　　var str = new String('one');
+
+　　会用字符串'one'创建一个字符串对象str，String对象有许多操作字符串的方法可供你调用。Number和Boolean也与之类似，你可以
+
+　　var num = new Number(3.1415);
+
+　　var bool = new Boolean(true) ;
+
+　　可以使用 typeof语法来验证它们是不是对象。
+
+　　typeof bool //object
+
+　　typeof num //object
+
+　　typeof str //object
+
+　　但是Symbol是个例外，你不能使用new语法创建一个Symbol值的包装对象，JavaScript是非常不鼓励将Symbol值包装成对象的，在实际使用中，这样的需求非常非常少！如果你特别想将一个Symbol值包装成对象，只能这样
+
+　　var sym = Symbol();
+
+　　var wrapSymbol = new Object(sym);
+
+　　同样，与Java有自动装拆箱一样，JavaScript也有类似的机制，且更灵活。简单讲，当你把基本数据当作对象来使用时，它就会自动变成一个对象（undefined和null除外，原因前面已说明）。
+
+　　举例如下：
+
+　　var hello ='hello';
+
+　　var str = hello.slice(1); //str 的值是'ello'
+
+　　这点比Java要方便！
+
+　　其原理是：JavaScript 发现我们对基本数据类型hello进行了slice方法调用，它会用hello的值创建一个临时的包装对象，即new String(hello)，然后在这个包装对象上调用slice(1)，返回基本数据类型字符串'ello'。随后，这个临时的包装对象就会被销毁。
+
+　　三、在JavaScript中，数组是对象吗？
+
+　　基本数据类型不是对象，JavaScript的口号已经自己打脸。现在继续来看数组。先说答案：数组是对象！
+
+　　JavaScript中，可以这样定义一个数组。
+
+　　var arr = [ 'one', 'two', 'three' ];
+
+　　乍一看，似乎没有键值对，但是，JavaScript会把上面的代码转化成下面这样：
+
+　　var arr = { '0':'one', '1':'two', '2':'three' } ;
+
+　　由此我们知道，数组属于对象确定无疑！！
+
+　　显然按照第一种写法更加简洁直观，你可以认为它是定义数组的语法糖。
+
+　　现在，我们来访问数组中的元素。按照前面学习的对象知识，似乎应该这样访问数组元素：
+
+　　arr.0 , arr.1, arr.2
+
+　　实际情况是，这是不允许的！为什么呢？
+
+　　前面我们讲过，只有属性字符串符合JavaScript的标识符命名规范时，才能用圆点语法(object.prop)访问对象的属性。而在上面的数组中，属性字符串是'0','1','2',它们都是以数字开头的字符串，不符合标识符命名规范，所以我们不能用圆点语法访问数组中的元素。
+
+　　那怎么访问？用基本的访问对象属性的方法，如下：
+
+　　arr['0'], arr['1'], arr['2']
+
+　　鉴于数组使用的频率实在太高，让用户每次访问数组元素都要写单引号，太繁琐，JavaScript对数组对象做了专门的优化，可以让你省去单引号，直接这样写：
+
+　　arr[0], arr[1], arr[2]
+
+　　优化的原理非常简单，在背后，JavaScript会自动将中括号中的东西两侧加上单引号。
+
+　　但是这样就会带来一个非常微妙的问题，假如我们这样写：
+
+　　arr[01]
+
+　　那么，JavaScript就会把它转化成这样：
+
+　　arr['01']
+
+　　很显然，对象 arr 中没有'01'这个属性，因为字符串'1'和'01'是不相等的，为避免这样的错误，JavaScript就禁止了在访问数组时输入开头为0的数字，它会报出 Invalid Number错误，提示你修改。
+
+　　另外，JavaScript数组对象有一个length属性，非常迷惑人，它并不是数组中元素的数量，请看下面的代码：
+
+　　var arr = ['one', ,'three'];
+
+　　在这个数组中，只有两个元素，但是arr.length的值仍然是3。JavaScript会把上面的代码转化成这样：
+
+　　var arr = {'0':'one','1':undefined,'2':'three'};
+
+　　如果测试 arr[1] == undefined,你会得到结果true。
+
+　　严格来说，arr.length的值等于最后一个元素的index再加上1。
+
+　　四、在JavaScript中，函数是对象吗？
+
+　　在JavaScript中，函数首先具有Java中方法的性质，就是接收输入，进行操作，根据需要产生输出。
+
+　　同样，先说答案：函数是对象！
+
+　　1、函数的定义
+
+　　JavaScript中，定义一个函数有两种方式：声明的方式和表达式的方式。
+
+　　• 声明的方式：
+
+JavaScript代码
+function foo1 (a,b) {  
+   return a+b ;  
+};  
+　　• 表达式的方式：
+
+JavaScript代码
+var foo2 = function (a,b) {  
+   return a + b;  
+};  
+　　上面第一种方式定义了一个名为foo1的函数，第二种方式定义了一个名为foo2的函数，二者有什么区别？
+
+　　最主要的区别是可用时机不一样。假设foo1和foo2存在于同一个js文件中，js引擎加载并执行该js文件的具体过程是：
+
+　　首先扫描整个文件，找出并加载foo1；
+
+　　然后逐条语句解释执行，文件中任何地方出现的foo1调用(不管是在foo1定义之前还是之后)都可以被正确处理，因为js引擎已经提前加载了该函数。
+
+　　当执行到定义foo2函数的行时，才会加载这个函数，在之后的语句中才能调用foo2函数，如果在定义foo2函数的行之前使用foo2，程序将会报错。
+
+　　简单讲，声明方式定义的函数会在程序执行之前加载，程序文件的任何地方都可以使用声明方式定义的函数。表达式的方式定义的函数只有在执行到定义函数所在的行时，才会加载，才能在之后的语句中使用该函数。
+
+　　问题来了，看看下面这种定义函数的方式：
+
+JavaScript代码
+var foo2 = function foo3(a,b) {  
+     return a + b;  
+};  
+　　咦！这是什么鬼？它属于哪种函数定义方式？这个函数的名字到底是foo2呢还是foo3呢？为什么要搞这么诡异的函数定义方式？
+
+　　简言之，它属于表达式的方式定义的函数，函数的名字是foo2，foo3存在的唯一目的就是为了在该函数内部使用该函数(实现递归)，在程序的其他地方foo3都是没有意义的，在这一点上，可以认为foo3的作用域在该函数的内部。
+
+　　现在可以来解释对象的方法问题了。对象的方法也是一个属性，此时，属性的名字就是函数的名字，属性的值就是一个函数。举例说明如下：
+
+JavaScript代码
+var  obj = {  
+    add: function(a,b){   
+         return a+b;  
+     }  
+};  
+　　上面的代码中，对象obj有一个属性add，它的值是一个函数，函数的名字就是属性的名字add，所以，你可以这样使用obj：
+
+　　var result = obj.add(4,9); // result == 13
+
+　　上述定义函数的方式属于表达式方式，也就是说，只有对象被创建后，add函数才会被加载。对象也可以使用声明方式定义的函数作为属性值，如下所示：
+
+Java代码
+var obj = { };  
+obj.add1 = add ;  
+  
+function add(a,b){  
+    return a+b;  
+};  
+　　上面的代码中，我们把以声明方式定义的函数add赋值给obj的一个名为add1的属性，此时你就可以这样使用了：
+
+　　var result = obj.add1(4,9); //result == 13
+
+　　那么问题来了，此时的add1和add是什么关系？仅仅是一个函数的两个名字吗？答案是： NO！这涉及到函数的另一个概念scope，后面会讲，暂且按下。
+
+　　理解了对象的方法也是键值对后，我们可以更彻底地理解文章开头的那句话：
+
+　　在JavaScript中，对象就是一个Map，里面只有键值对，除此之外，啥也没有！
+
+　　搞清楚了函数的定义方式，理解了对象的方法也是键值对，我们来看本节主题：函数也是对象！
+
+　　我们以上面定义的函数foo1(声明方式定义)和foo2(表达式方式定义)为例来说明。
+
+　　函数是对象，最明显的证据就是我们可以为它增加、删除、修改属性。如下：

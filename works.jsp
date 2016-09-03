@@ -20,32 +20,13 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
-
 	<body>
-		<div id="outter-w">
-			<header id="pub">文章发布</header>
-			<section id="writeArti">
-				<form  action="writeArticle?action=w" method="post">
-				<label class="textlabel-w" for="usrId">用户ID:</label>
-				<input id="uerId" class="field-w" name="userId" />
-				<label class="textlabel-w" for="title">题目:</label>
-				<input id="title" class="field-w" name="title" />
-				<span class="textlabel-wc">
-					<label  for="category1">动态</label>
-					<input id="category1" type="radio" name="category" value="1" checked="checked"/>
-					<label for="category2">随笔</label>
-					<input id="category2" type="radio" name="category" value="2" />
-				</span>
-				<label class="textlabel-w" for="w-text">正文:</label>
-				<textarea id="text-w" name="content"></textarea>
-				<input class="btn" type="submit" value="发布"/>
-				<input class="btn cancel" type="reset" value="取消" />
-				</form>
-			</section>
+	<div style="background: #fff">
+		<h2 style="min-height: 300px;">敬请期待......</h2>
 			<footer>
 				<p>&copy; Copyright by Cq-PC1</p>
 				<p class="contact-info">管理员:fcaiqing(at)163.com</p>
 			</footer>
-		</div>
+	</div>
 	</body>
 </html>

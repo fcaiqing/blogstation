@@ -68,13 +68,13 @@
 			<nav>
 				<ul>
 					<li class="nav-animation"><a href="/blogStation">首 页</a></li>
-					<li class="nav-animation"><a>动 态</a></li>
-					<li class="nav-animation"><a>随 笔</a></li>
-					<li class="nav-animation"><a>作 品</a></li>
-					<li class="nav-animation"><a>资 源</a></li>
-					<li class="admini"><a href="writePage.jsp" class="admini-one">发 布</a>
-						<a href="javascript:void(0);" class="admini-two" onclick="showregister(this);">注 册</a>
-						<a href="javascript:void(0);" class="admini-thr">信 息</a>
+					<li class="nav-animation"><a href="javascript:void(0);">动 态</a></li>
+					<li class="nav-animation"><a href="javascript:void(0);">随 笔</a></li>
+					<li class="nav-animation"><a href="works.jsp">作 品</a></li>
+					<li class="nav-animation"><a href="resource.jsp">资 源</a></li>
+					<li class="admini" onmouseover="showadmini(this);" onmouseout="hiddenmini(this);"><a href="writePage.jsp" class="admini-one">发 布</a>
+						<span class="listitem" id="tri-prompt"></span>
+						<a href="javascript:void(0);" id="link-regi" class="admini-two" onclick="showregister(this);">注 册</a>
 					</li>
 				</ul>
 			</nav>
@@ -124,6 +124,7 @@
 	<script type="text/javascript" src="JS/pagenav.js"></script>
 	<footer>
 		<p>&copy; Copyright by Cq-PC1</p>
+		<p class="contact-info">管理员:fcaiqing(at)163.com</p>
 	</footer>
 	</div>
 </body>

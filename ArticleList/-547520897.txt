@@ -1,0 +1,35 @@
+  鸡啄米在上一节中为大家讲解了字体对话框的使用方法，熟悉了字体对话框，本节继续讲另一种通用对话框--颜色对话框。
+
+       颜色对话框大家肯定也不陌生，我们可以打开它选择需要的颜色，简单说，它的作用就是用来选择颜色。MFC中提供了CColorDialog类封装了颜色对话框的所有操作，我们可以通过它显示颜色对话框，并获取颜色对话框中选择的颜色。颜色对话框跟字体对话框一样，也是一种模态对话框。
+
+       CColorDialog类的构造函数
+
+CColorDialog(
+   COLORREF clrInit = 0,
+   DWORD dwFlags = 0,
+   CWnd* pParentWnd = NULL 
+);
+
+       参数说明：
+
+       clrInit：默认选择颜色的颜色值，类型为COLORREF，实际上就是unsigned long类型。如果没有设置它的值，则默认为RGB(0,0,0)，即黑色。
+
+       注：RGB(r,g,b)是宏，可以计算颜色值。括号中的三个值分别为红、绿、蓝分量的值。
+
+       dwFlags：自定义颜色对话框功能和外观的属性值。详情可在MSDN中查阅。
+
+       pParentWnd：颜色对话框的父窗口的指针。
+
+       获取颜色对话框中所选颜色值
+
+       我们使用颜色对话框的最终目的还是要获得在颜色对话框中选择的颜色值。为此CColorDialog类的成员函数GetColor()能够很好的实现我们的要求。GetColor()函数的原型为：
+
+       COLORREF GetColor( ) const;
+
+       它返回所选颜色的COLORREF值。
+
+       如果我们想获得R、G、B各分量的值呢？可以根据GetColor得到的COLORREF颜色值，通过使用GetRValue、GetGValue和GetBValue三个宏获得。GetRValue的语法形式为：
+
+       BYTE GetRValue(DWORD rgb);
+
+       参数rgb就是COLORREF颜色值，返回值即是R分量值。其他两个宏的形式与之类似。例如，GetColor()函数返回的COLORREF为10000，则R分量值就是GetRValue(10000)。
