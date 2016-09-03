@@ -1,0 +1,242 @@
+body.bg{
+	background-image:url(../image/top10.jpg);
+	background-size:cover;
+	background-attachment: fixed;
+}
+.wrapper{
+	/*background-color:rgba(0,0,0,.8);*/
+}
+#top{
+	position:fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	display:block;
+	margin:0px;
+	height:78px;
+	background:rgb(33,33,33);
+}
+#topImg{
+	width: 100%;
+    height:78px;
+}
+li.nav-animation:hover{
+	border-bottom:2px white solid;
+}
+li.admini{
+	background:rgb(33,33,33);
+	height: 112px;
+}
+a.admini-one{
+	display:block;
+	margin-bottom:1px;
+	/*border:1px white dotted;*/
+}
+a.admini-two{
+	display:block;
+	margin-bottom:1px;
+	/*border:1px white dotted;*/
+}
+a.admini-thr{
+	display:block;
+	/*border:1px white dotted;*/
+}
+#contentBox{
+	min-height:600px;
+	margin:0px auto;
+	margin-top:1px;
+	width:60%;
+	padding:1px 5px;
+	background: #fff;
+	word-wrap: break-word;
+}
+.articlelist{
+	margin-top:5px;
+	margin-bottom:30px;
+	margin-right:auto;
+	margin-left:auto;
+	padding:10px 20px;
+	background: #f5f5f5;
+	box-shadow: 0 0 10px #ccc;
+}
+.pagenav{
+	vertical-align:middle;
+	text-align:center;
+	float:none;
+	padding:0px;
+    border-radius: 2px;
+}
+.pagenav li{
+	float:none;
+    display: inline-block;
+    padding:0px;
+    margin:-5px auto;
+}
+.pagenav li a{
+	padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #428bca;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+.pagenav li a:hover{
+	padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #428bca;
+    background-color: #fff;
+    border: 1px solid #808080;
+    margin-left: -1px;
+}
+.articleTitle{
+	font:700 16px 'Microsoft Yahei','Hei',Tahoma,'SimHei',sans-serif;
+}
+.articleStamp{
+	display:block;
+	margin-left: 8px;
+    color: #7c7c7c;
+    font-size: 12px;
+    line-height: 18px;
+}
+p.titletocontent
+{
+	margin:8px auto;
+}
+p.articleTitle
+{
+	margin:8px auto;
+}
+span.articategory{
+	display:inline-block;
+	margin-left:40px;
+	color: #b4b4b4;
+}
+#write-enter{
+	visibility:hidden;
+}
+header#pub{
+	position:inherit;
+	margin:10px auto 5px auto;
+	width:100px;
+	color: #666666;
+	font-size:15px;
+}
+#outter-w{
+	/*background:#fff;*/
+	background: #f5f5f5;
+	width:50%;
+	height:100%;
+	margin: 0 auto;
+	padding-top:20px;
+}
+#writeArti{
+	margin:10px auto;
+	width:588px;
+}
+label.textlabel-w{
+	display:block;
+	margin: 10px auto;
+}
+input.field-w{
+	display:block;
+	width: 	582px;
+	margin: 10px auto;
+	overflow: hidden;
+}
+#text-w{
+	display:block;
+	width: 	582px;
+	height: 400px;
+	margin: 10px auto;
+	overflow: auto;
+	word-wrap: break-word;
+}
+.btn{
+    padding: 5px 16px;
+    height: 27px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #3fa156;
+    border: 1px solid #528641;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.cancel{
+	float: right;
+	border: none;
+    height: 25px;
+    padding: 0 14px;
+    color: #333;
+    font-size: 12px;
+    margin: 0 !important;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background-image: -moz-linear-gradient(-90deg, #fcfcfc 0, #e9e9e9 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fcfcfc), color-stop(1, #e9e9e9));
+}
+#regimask{
+	display:none;
+	width:100%;
+	height:100%;
+	position:fixed;
+	left:0px;
+	top:0px;
+	background-color: rgba(0,0,0,.5);
+}
+#regi{
+	display:none;
+	position:absolute;
+	right:280px;
+	top:150px;
+	width:400px;
+	height:200px;
+	background: #f5f5f5;
+	box-shadow: 0 0 15px #ccc;
+	border-radius:10px;
+}
+span.promptInfo{
+	display:block;
+	width:100px;
+	margin:10px auto 5px auto;
+	color: #666666;
+	font-size:15px;
+}
+#regi-form{
+	width:300px;
+	margin:10px auto 5px auto;
+}
+.regiInfo{
+	position: relative;
+	left:20px;
+	top:5px;
+}
+.mustinput{
+	color: red;
+}
+.btn-regi{
+	margin:30px 40px 20px 60px;
+}
+.btn-reset{
+	display: inline-block;
+	width:50px;
+	height:25px;
+}
+#w-name{
+	position: relative;
+	left:20px;
+	top:5px;
+	margin:10px auto 5px auto;
+}
+.regi-address{
+	display:inline-block;
+	height:22px;
+	width:78px;
+	position: relative;
+	left:20px;
+	top:5px;
+	margin:10px auto 5px auto;
+}
