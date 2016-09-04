@@ -61,7 +61,7 @@
 			</form>
 		</div>
 		<div id="top">
-			<header>
+			<header class="media-header">
 				<em style="display: block;">cqnzb</em>
 				 <span style="font-size: 40%; color: #E0E0E0;"><em>始终坚持学习!</em></span>
 			</header>

@@ -3,6 +3,8 @@
 ### This is my first website made by myself
 #### functions include
 - publish your articles
-+ act as a diary
+- act as a diary
 - record my next works
 - share resources with others
+- add register
+- add layout for mobile
